@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minecraft Launchers</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-image: url('minecraft.gif');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        font-family: 'Minecraft Regular', Arial, sans-serif; /* Use the Minecraft font */
+    }
+    .container {
+        text-align: center;
+        background-color: #222;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 70vw;
+        margin: 0 auto;
+        border: 3px solid #fff;
+    }
+    h1 {
+
+        color: #fff;
+        /* Glowing text effect */
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                     0 0 20px rgba(255, 255, 255, 0.8),
+                     0 0 30px rgba(255, 255, 255, 0.8),
+                     0 0 40px rgba(255, 255, 255, 0.8),
+                     0 0 50px rgba(255, 255, 255, 0.8);
+        animation: glow 1s ease-in-out infinite alternate;
+    }
+    select {
+        margin-top: 20px;
+        width: 200px;
+        padding: 10px;
+        text-align: center;
+        border: 2px solid #fff;
+        border-radius: 20px;
+        background-color: #f0f0f0;
+        font-family: 'Minecraft Regular', Arial, sans-serif; /* Use the Minecraft font */
+        color: #111111;
+    }
+    option {
+        font-family: 'Minecraft Regular', Arial, sans-serif; /* Use the Minecraft font */
+        color: #111111;
+    }
+
+    /* Animation for glowing effect */
+    @keyframes glow {
+        from {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                         0 0 20px rgba(255, 255, 255, 0.8),
+                         0 0 30px rgba(255, 255, 255, 0.8),
+                         0 0 40px rgba(255, 255, 255, 0.8),
+                         0 0 50px rgba(255, 255, 255, 0.8);
+        }
+        to {
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+                         0 0 30px rgba(255, 255, 255, 0.8),
+                         0 0 40px rgba(255, 255, 255, 0.8),
+                         0 0 50px rgba(255, 255, 255, 0.8),
+                         0 0 60px rgba(255, 255, 255, 0.8);
+        }
+    }
+    button {
+        font-family: 'Minecraft Regular', Arial, sans-serif; /* Use the Minecraft font */
+      font-size: 1.1em;
+      padding: 10px 10px;
+      margin: 10px auto 0; /* 10px top, auto left and right, 0 bottom */
+      background-color: #000000;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+      display: inline-block; /* Ensures buttons stack vertically */
+    }
+
+    button + button {
+      margin-top: 5px; /* Additional margin between stacked buttons */
+    }
+    button:hover {
+      background-color: #575757;
+      box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
+      transition: all .2s ease-in-out;
+      z-index: 1; /* Ensure the shadow is above other elements */
+    }
+</style>
+<style>
+    /* Importing Minecraft font */
+    @font-face {
+        font-family: 'Minecraft Regular';
+        src: url('minecraft.ttf') format('truetype'); /* Replace with actual font file path */
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Minecraft Games</h1>
+        <select id="launcherSelect" onchange="redirectToPage()">
+            <option value="">Select Version</option>
+            <option value="/mc1.8/index">MC 1.8</option>
+            <option value="/mc1.5.2/index">MC 1.5.2</option>
+            <option value="mc-1.3/index">MC Beta 1.3</option>
+            <option value="mc1.2.6">MC Alpha 1.2.6</option>
+            <option value="mcbeta0.30/index">MC 0.30</option>
+            <option value="MinecraftJS/index">MC JS</option>
+        </select>
+        <br>
+        <button class="btn" onclick="window.location.href='index.html';">Back</button>
+    </div>
+
+    <script>
+        function redirectToPage() {
+            var selectBox = document.getElementById("launcherSelect");
+            var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+
+            if (selectedValue) {
+                window.location.href = selectedValue + ".html";
+            }
+        }
+    </script>
+</body>
+</html>
